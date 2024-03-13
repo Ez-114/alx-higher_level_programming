@@ -41,13 +41,13 @@ listint_t *insert_node(listint_t **head, int number)
 	/* search for its sutable place in the list */
 	if (tail_node->n > number)
 	{
-		tail_node->next = new_node;
-		new_node->next = front_node;
+		*head = new_node;
+		new_node->next = tail_node;
 		return (new_node);
 	}
 	while (front_node)
 	{
-		if (tail_node->n < number && front_node->n > number)
+		if (tail_node->n < number && front_node->n >= number)
 		{
 			tail_node->next = new_node;
 			new_node->next = front_node;
@@ -56,6 +56,7 @@ listint_t *insert_node(listint_t **head, int number)
 		tail_node = front_node;
 		front_node = front_node->next;
 	}
-	free(new_node);
-	return (NULL);
+	tail_node->next = new_node;
+	new_node->next = front_node;
+	return (new_node);
 }
