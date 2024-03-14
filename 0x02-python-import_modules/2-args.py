@@ -10,10 +10,10 @@ if __name__ == "__main__":
 
     elif argv_len == 2:
         print("1 argument:")
-        print("1: {}".format(argv[1]))
+        print("1: {:s}".format(argv[1]))
 
     elif argv_len > 2:
-        print("{0} arguments:".format(argv_len - 1)) # to execlude the program name
+        print("{0:d} arguments:".format(argv_len - 1)) # to execlude the program name
 
         for i in range(1, argv_len):
-            print("{0}: {1}".format(i, argv[i]))
+            print("{0:d}: {1:s}".format(i, argv[i]))
