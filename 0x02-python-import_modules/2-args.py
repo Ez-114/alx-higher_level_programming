@@ -13,7 +13,8 @@ if __name__ == "__main__":
         print("1: {:s}".format(argv[1]))
 
     elif argv_len > 2:
-        print("{0:d} arguments:".format(argv_len - 1)) # to execlude the program name
+        # to execlude the program name
+        print("{0:d} arguments:".format(argv_len - 1))
 
         for i in range(1, argv_len):
             print("{0:d}: {1:s}".format(i, argv[i]))
