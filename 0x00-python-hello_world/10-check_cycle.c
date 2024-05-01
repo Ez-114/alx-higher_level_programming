@@ -10,7 +10,7 @@ int check_cycle(listint_t *list)
 	listint_t *low, *high;
 	
 	low = list;
-	high = list
+	high = list;
 	while (high && high->next)
 	{
 		low = low->next;
