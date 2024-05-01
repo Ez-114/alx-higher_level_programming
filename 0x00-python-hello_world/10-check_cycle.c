@@ -7,14 +7,16 @@
 */
 int check_cycle(listint_t *list)
 {
-	listint_t *current;
+	listint_t *low, *high;
 	
-	current = list;
-	while (current)
+	low = list;
+	high = list
+	while (high && high->next)
 	{
-		if (current->next == list)
+		low = low->next;
+		high = high->next->next;
+		if (high == low)
 			return (1);
-		current = current->next;
 	}
 	return(0);
 }
