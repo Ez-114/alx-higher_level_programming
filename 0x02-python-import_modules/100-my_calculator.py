@@ -17,17 +17,16 @@ if __name__ == "__main__":
     op = sys.argv[2]
 
     # Check if the operator passed is available
-    match op:
-        case "+":
-            result = clc.add(a, b)
-        case "-":
-            result = clc.sub(a, b)
-        case "*":
-            result = clc.mul(a, b)
-        case "/":
-            result = clc.div(a, b)
-        case _:
-            print("Unknown operator. Available operators: +, -, * and /")
-            sys.exit(1)
+    if op == "+":
+        result = clc.add(a, b)
+    elif op == "-":
+        result = clc.sub(a, b)
+    elif op == "*":
+        result = clc.mul(a, b)
+    elif op == "/":
+        result = clc.div(a, b)
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
 
     print("{:d} {} {:d} = {:d}".format(a, op, b, result))
