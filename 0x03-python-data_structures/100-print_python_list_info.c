@@ -1,29 +1,21 @@
-#define Py_LIMITED_API 0x03040000
+#define PY_LIMITED_API 0x03040000
 
 #include <Python.h>
 #include <stddef.h>
 #include <stdio.h>
 
 /**
- * print_python_list_info - prints basic info about python lists
- * @p: A PyObject list
+ * print_python_list_info - print some info about py lists
+ * @p: py object
  */
 void print_python_list_info(PyObject *p)
 {
-	int size = Py_SIZE(p);
-	int alloc =((PyListObject *)p)->allocated;
-	int i;
-	PyObject *ob;
+	size_t size = Py_SIZE(p), i;
 
-	printf("[*] Size of the Python List = %d\n", size);
-	printf("[*] Allocated = %d\n", alloc);
-
+	printf("[*] Size of the Python List = %ld\n", size);
+	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 	for (i = 0; i < size; i++)
 	{
-		printf("Element %d: ", i);
-		ob = PyList_GetItem(p, i);
-		printf("%s\n", Py_TYPE(obj)->tp_name);
+		printf("Element %ld: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
 	}
-
-	return (0);
 }
