@@ -1,0 +1,69 @@
+The ``0-add_integers`` module
+=============================
+
+Using ``add_integer``
+---------------------
+
+First import the function:
+
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+
+Second try all test cases.
+
+``a`` is positive integer:
+
+	>>> add_integer(2)
+	100
+
+``a`` is negative integer:
+
+	>>> add_integer(-8)
+	90
+
+``a`` is not an integer:
+- (float):
+
+	>>> add_integer(2.5)
+	100
+
+- (string):
+
+	>>> add_integer("hello")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+- (list):
+
+	>>> add_integer([1, 2, 3, "kk"])
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+``a`` and ``b`` are both negative numbers:
+
+	>>> add_integer(-2, -9)
+	-11
+
+``a`` and ``b`` are both positive numbers:
+
+	>>> add_integer(4, 6)
+	10
+
+``a`` is positive and ``b`` is negative:
+
+	>>> add_integer(4, -9)
+	-5
+
+``a`` is negative and ``b`` is positive:
+
+	>>> add_integer(-6, 4)
+	-2
+
+``b`` is not an integer:
+
+	>>> add_integer(4, "hello")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
