@@ -11,7 +11,7 @@ if (CLargs[2] === undefined) {
   if (argv.length === 1) {
     console.log(0);
   } else if (argv.length > 1) {
-    argv.sort();
+    argv.sort((a, b) => { return a - b; });
     console.log(argv[argv.length - 2]);
   }
 }
