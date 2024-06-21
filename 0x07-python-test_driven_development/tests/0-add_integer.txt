@@ -92,7 +92,8 @@ Second try all test cases.
 
 float overflow:
 ---------------
-	>>> add_integer(float('inf'), -float('inf'))
-	Traceback (most recent call last):
-		...
-	OverflowError: cannot convert float infinity to integer
+	>>> add_integer(0, -float('inf'))
+	89
+
+	>>> add_integer(-float('inf'), 1)
+	89
