@@ -1,0 +1,35 @@
+The ``2-matrix_divided`` module
+===============================
+
+Using the ``matrix_divided`` function
+-------------------------------------
+
+The ``matrix_divided`` function should return a new matrix divided by
+a number passed to the function called div.
+The function also takes ``matrix`` as input along with ``div``.
+
+first import it:
+
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Second Test Cases:
+normal input:
+
+	>>> mat = [
+	... 	[1, 2, 3],
+	... 	[4, 5, 6]
+	...	]
+
+	>>> matrix_divided(mat, 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+nothing is passed:
+
+	>>> matrix_divided(None, None)
+	Traceback (most recent call last):
+		...
+	TypeError: div must be a number
+
+div only is passed:
+
+	>>> matrix_divided(None, 3)

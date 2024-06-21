@@ -67,3 +67,19 @@ Second try all test cases.
 	Traceback (most recent call last):
 		...
 	TypeError: b must be an integer
+
+``NaN`` values:
+---------------
+	>>> add_integer(float('nan'), 2)
+	91
+	>>> add_integer(float('-nan'), 7)
+	96
+	>>> add_integer(4, float('nan'))
+	93
+	>>> add_integer(5, float('-nan'))
+	94
+
+float overflow:
+---------------
+	>>> add_integer(1e308, 1e308)
+	89
