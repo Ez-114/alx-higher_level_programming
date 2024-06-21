@@ -71,13 +71,24 @@ Second try all test cases.
 ``NaN`` values:
 ---------------
 	>>> add_integer(float('nan'), 2)
-	91
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
 	>>> add_integer(float('-nan'), 7)
-	96
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
 	>>> add_integer(4, float('nan'))
-	93
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
 	>>> add_integer(5, float('-nan'))
-	94
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
 
 float overflow:
 ---------------
