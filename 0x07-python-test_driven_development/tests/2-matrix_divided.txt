@@ -99,3 +99,16 @@ Second Test Cases:
 -----------------------------
 	>>> matrix_divided(mat, float('nan'))
 	[[nan, nan, nan], [nan, nan, nan]]
+
+
+7. Missing argument(s):
+-----------------------
+	>>> matrix_divided(mat)
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+	>>> matrix_divided()
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
