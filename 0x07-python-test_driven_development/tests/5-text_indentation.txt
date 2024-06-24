@@ -1,0 +1,52 @@
+=========================
+`text_indentation` Module
+=========================
+
+
+First include the module:
+=========================
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+Second execute Test Cases:
+==========================
+
+1. Normat input:
+----------------
+
+	>>> text_indentation("Hi. My name is: Ezz. How are you?")
+	Hi.
+	<BLANKLINE>
+	My name is:
+	<BLANKLINE>
+	Ezz.
+	<BLANKLINE>
+	How are you?
+
+	>>> text_indentation("Holberton.School")
+	Holberton.
+	<BLANKLINE>
+	School
+
+2. Invalid input:
+-----------------
+
+	>>> text_indentation(89)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+3. No input:
+------------
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+4. passed an empty string:
+--------------------------
+
+	>>> text_indentation(" ")
+	 
