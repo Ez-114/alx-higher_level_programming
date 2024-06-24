@@ -44,7 +44,7 @@ class Rectangle:
             result.append('#' * self.__width)
 
         return '\n'.join(result)
-    
+
     def __repr__(self):
         """
         Returns a string representation of the rectangle.
