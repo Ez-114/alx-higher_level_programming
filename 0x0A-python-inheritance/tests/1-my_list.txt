@@ -85,3 +85,10 @@ Second: Test Cases:
 	>>> l.clear()
 	>>> l.__str__()
 	'[]'
+
+
+4. test with empty list:
+------------------------
+
+	>>> l.print_sorted()
+	[]
