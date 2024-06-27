@@ -6,8 +6,8 @@ This module defines a BaseGeometry class.
 The BaseGeometry class is currently empty and serves as
 a placeholder for future development.
 It can be used to represent a BaseGeometry in geometric calculations,
-graphical representations, or any other application where BaseGeometry properties
-and behaviors are needed.
+graphical representations, or any other application where BaseGeometry
+properties and behaviors are needed.
 """
 
 
