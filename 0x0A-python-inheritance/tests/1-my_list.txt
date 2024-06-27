@@ -1,0 +1,87 @@
+======================================
+`1-my_list` Test Module
+======================================
+
+First Import the Module:
+========================
+
+	>>> MyList = __import__('1-my_list').MyList
+	>>> l = MyList()
+	>>> issubclass(list, MyList)
+	False
+
+	>>> issubclass(MyList, list)
+	True
+
+	>>> isinstance(l, MyList)
+	True
+
+	>>> isinstance(l, list)
+	True
+
+Second: Test Cases:
+===================
+
+1. sorting with positives:
+--------------------------
+
+	>>> l.append(1)
+	>>> l.append(4)
+	>>> l.append(2)
+	>>> l.append(3)
+	>>> l.append(5)
+	>>> l.print_sorted()
+	[1, 2, 3, 4, 5]
+
+	>>> l.__str__()
+	'[1, 4, 2, 3, 5]'
+
+	>>> print(l)
+	[1, 4, 2, 3, 5]
+
+	>>> l.clear()
+	>>> l.__str__()
+	'[]'
+
+2. sorting with negatives:
+--------------------------
+
+	>>> l.append(-9)
+	>>> l.append(-5)
+	>>> l.append(-2)
+	>>> l.append(-6)
+	>>> l.append(-1)
+	>>> l.print_sorted()
+	[-9, -6, -5, -2, -1]
+
+	>>> l.__str__()
+	'[-9, -5, -2, -6, -1]'
+
+	>>> print(l)
+	[-9, -5, -2, -6, -1]
+
+	>>> l.clear()
+	>>> l.__str__()
+	'[]'
+
+3. sorting mixed numbers:
+-------------------------
+
+	>>> l.append(0)
+	>>> l.append(-9)
+	>>> l.append(3)
+	>>> l.append(4)
+	>>> l.append(-8)
+	>>> l.append(-6)
+	>>> l.print_sorted()
+	[-9, -8, -6, 0, 3, 4]
+
+	>>> l.__str__()
+	'[0, -9, 3, 4, -8, -6]'
+
+	>>> print(l)
+	[0, -9, 3, 4, -8, -6]
+
+	>>> l.clear()
+	>>> l.__str__()
+	'[]'
