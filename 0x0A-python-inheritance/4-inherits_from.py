@@ -1,4 +1,4 @@
-#!/usr#!/usr/bin/python3
+#!/usr/bin/python3
 """
 The `inherits_from` Module defines a function called `inherits_from`.
 This function is a customized function used to determine if the passed
