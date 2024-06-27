@@ -1,15 +1,15 @@
-#!/usr/bin/python3
+#!/usr#!/usr/bin/python3
 """
-The `is_kind_of_class` Module defines a function called `is_kind_of_class`.
+The `inherits_from` Module defines a function called `inherits_from`.
 This function is a customized function used to determine if the passed
 Object is an instance of the passed class or not.
 """
 
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
-    Determines if `obj` is an instance of the specified class
-    `a_class`.
+    Determines if `obj` is an instance of a class that inherited
+    (directly or indirectly) from the specified class `a_class`.
 
     Args:
         obj (object): passed object to examine.
@@ -19,4 +19,4 @@ def is_kind_of_class(obj, a_class):
         bool: True if obj is exactly an instance of a_class, otherwise False.
     """
 
-    return isinstance(obj, a_class)
+    return type(obj) is not a_class and isinstance(obj, a_class)
