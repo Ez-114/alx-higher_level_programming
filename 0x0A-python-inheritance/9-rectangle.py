@@ -20,3 +20,23 @@ class Rectangle(bg):
         """
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """overrides the un-implemented area method in the
+        BaseGeometry class.
+
+        Returns:
+            (int): area of the Rectangle.
+        """
+
+        return self.__height * self.__width
+
+    def __str__(self):
+        """constructs the representation of a rectangle.
+
+        Returns:
+            str: string representation of the instansiated Rectangle class
+        """
+
+        rp = "[Rectangle] {}/{}".format(self.__width, self.__height)
+        return rp
