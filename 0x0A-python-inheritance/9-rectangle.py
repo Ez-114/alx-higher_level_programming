@@ -18,7 +18,9 @@ class Rectangle(bg):
             width: width of the Rectangle
             height: height of the Rectangle
         """
+        super().integer_validator("width", width)
         self.__width = width
+        super().integer_validator("height", height)
         self.__height = height
 
     def area(self):
@@ -28,7 +30,6 @@ class Rectangle(bg):
         Returns:
             (int): area of the Rectangle.
         """
-
         return self.__height * self.__width
 
     def __str__(self):
