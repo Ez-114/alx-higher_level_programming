@@ -61,6 +61,9 @@ C. check methods:
 	TypeError: num must be an integer
 
 	>>> bg.integer_validator("num", True)
+	Traceback (most recent call last):
+		...
+	TypeError: num must be an integer
 
 	>>> bg.integer_validator("num", {3, 4})
 	Traceback (most recent call last):
