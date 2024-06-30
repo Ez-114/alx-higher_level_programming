@@ -50,27 +50,24 @@ C. check methods:
 		...
 	TypeError: num must be an integer
 
-	>>> bg.integer_validator(“age”, (4,))
+	>>> bg.integer_validator("num", (4,))
 	Traceback (most recent call last):
 		...
 	TypeError: num must be an integer
 
-	>>> bg.integer_validator(“age”, [3])
+	>>> bg.integer_validator("num", [3])
 	Traceback (most recent call last):
 		...
 	TypeError: num must be an integer
 
-	>>> bg.integer_validator(“age”, True)
+	>>> bg.integer_validator("num", True)
+
+	>>> bg.integer_validator("num", {3, 4})
 	Traceback (most recent call last):
 		...
 	TypeError: num must be an integer
 
-	>>> bg.integer_validator(“age”, {3, 4})
-	Traceback (most recent call last):
-		...
-	TypeError: num must be an integer
-
-	>>> bg.integer_validator(“age”, None)
+	>>> bg.integer_validator("num", None)
 	Traceback (most recent call last):
 		...
 	TypeError: num must be an integer
