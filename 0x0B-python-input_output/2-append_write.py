@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """2-append_write
 This module defines the `append_write` function that writes to a file
 without deleting its old content.
