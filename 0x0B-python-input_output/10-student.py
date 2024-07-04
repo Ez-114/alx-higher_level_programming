@@ -17,7 +17,9 @@ class Student:
         if attrs is None:
             return self.__dict__
 
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {key: self.__dict__[key] for key in attrs if key in self.__dict__}
+        if isinstance(attrs, list) \
+                and all(isinstance(attr, str) for attr in attrs):
+            return {key: self.__dict__[key]
+                    for key in attrs if key in self.__dict__}
 
         return self.__dict__
