@@ -145,3 +145,12 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = val
+
+    def area(self):
+        """
+        Computes the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return (self.__width * self.__height)
