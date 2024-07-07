@@ -4,10 +4,10 @@ Rectangle Module.
 
 Defines the `Rectangle` class that inherits from the `Base` class.
 """
-import base
+from models.base import Base
 
 
-class Rectangle(base.Base):
+class Rectangle(Base):
     """
     Blueprint for Rectangle objects.
     Inherits from the `Base` class.
