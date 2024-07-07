@@ -164,3 +164,19 @@ class Rectangle(Base):
         else:
             for _ in range(self.__height):
                 print("#" * self.__width)
+
+    def __str__(self):
+        """
+        Creates a new string object from the given Rectangle
+        instance.
+
+        Returns:
+            (str): The created str object.
+        """
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                                                    self.id,
+                                                    self.__x,
+                                                    self.__y,
+                                                    self.__width,
+                                                    self.__height
+                                                )
