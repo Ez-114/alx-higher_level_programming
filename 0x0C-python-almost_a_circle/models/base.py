@@ -42,7 +42,8 @@ class Base:
             list of Rectangle or list of Square instances.
         """
 
-        file_name = "{}.json".format(type(list_objs[0]).__name__)
+        file_name = "{}.json".format(cls.__name__)
+
         with open(file_name, mode="w", encoding="utf-8") as file:
             if list_objs is None:
                 file.write(cls.to_json_string([]))
