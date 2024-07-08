@@ -200,7 +200,13 @@ class Rectangle(Base):
         Returns:
             (dict): dictionary representing the instance in key, value pairs.
         """
-        return self.__dict__
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
 
     def update(self, *args, **kwargs):
         """
