@@ -92,6 +92,20 @@ class Square(Rectangle):
         self.width = val
         self.height = val
 
+    def to_dictionary(self):
+        """
+        Creates the dictionary object of the class instance.
+
+        Returns:
+            (dict): dictionary representing the instance in key, value pairs.
+        """
+        return {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
+
     def update(self, *args, **kwargs):
         """
         Updates the attributes of the instance.
