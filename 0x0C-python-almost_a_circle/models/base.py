@@ -71,28 +71,6 @@ class Base:
         dummy.update(**dictionary)  # type: ignore
         return dummy
 
-    @classmethod
-    def load_form_file(cls):
-        """
-        Returns a list of instances.
-
-        The filename must be: <Class name>.json
-            - example: Rectangle.json
-        If the file doesn't exist, return an empty list.
-        Otherwise, return a list of instances
-
-        - the type of these instances depends on cls.
-
-        Returns:
-            list: List of instances.
-        """
-
-        filename = f"{cls.__name__}.json"
-        if not os.path.exists(filename):
-            return []
-        with open(filename, 'r') as file:
-            return [cls.create(**d) for d in cls.from_json_string(file.read())]
-
     @staticmethod
     def to_json_string(list_dictionaries):
         """
@@ -117,3 +95,26 @@ class Base:
         if json_string is None or not json_string:
             return []
         return json.loads(json_string)
+
+
+    @classmethod
+    def load_form_file(cls):
+        """
+        Returns a list of instances.
+
+        The filename must be: <Class name>.json
+            - example: Rectangle.json
+        If the file doesn't exist, return an empty list.
+        Otherwise, return a list of instances
+
+        - the type of these instances depends on cls.
+
+        Returns:
+            list: List of instances.
+        """
+
+        filename = f"{cls.__name__}.json"
+        if not os.path.exists(filename):
+            return []
+        with open(filename, 'r') as file:
+            return [cls.create(**d) for d in cls.from_json_string(file.read())]
