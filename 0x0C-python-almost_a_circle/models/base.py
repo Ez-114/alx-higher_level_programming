@@ -63,11 +63,11 @@ class Base:
             Base: An instance of the class with attributes set.
         """
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1) # type: ignore
+            dummy = cls(1, 1)  # type: ignore
         elif cls.__name__ == "Square":
             dummy = cls(1)
 
-        dummy.update(**dictionary) # type: ignore
+        dummy.update(**dictionary)  # type: ignore
         return dummy
 
     @staticmethod
