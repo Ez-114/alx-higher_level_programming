@@ -117,4 +117,4 @@ class Base:
         if not os.path.exists(filename):
             return []
         with open(filename, 'r') as file:
-            return [cls.create(**d) for d in cls.from_json_string(file.read())]
+            return [cls.create(**d) for d in Base.from_json_string(file.read())]
