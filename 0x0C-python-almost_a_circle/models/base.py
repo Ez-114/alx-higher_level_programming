@@ -97,7 +97,10 @@ class Base:
             json_str = f.read()
 
         list_dicts = cls.from_json_string(json_str)
-        return [cls.create(**diction) for diction in list_dicts]
+        instance_list = []
+        for diction in list_dicts:
+            instance_list.append(cls.create(**diction))
+        return instance_list
 
     @staticmethod
     def to_json_string(list_dictionaries):
