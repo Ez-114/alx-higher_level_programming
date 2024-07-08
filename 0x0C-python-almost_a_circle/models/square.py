@@ -92,6 +92,25 @@ class Square(Rectangle):
         self.width = val
         self.height = val
 
+    def update(self, *args, **kwargs):
+        """
+        Updates the attributes of the instance.
+        The values should be passed in this order:
+            1- id
+            2- size
+            3- x
+            4- y
+        """
+        attributes = ['id', 'size', 'x', 'y']
+        if not args:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
+        else:
+            for i, arg in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], arg)
+
     def __str__(self):
         """
         Creates a new string object from the given Square instance.
