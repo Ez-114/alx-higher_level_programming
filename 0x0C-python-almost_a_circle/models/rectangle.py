@@ -2,7 +2,33 @@
 """
 Rectangle Module.
 
-Defines the `Rectangle` class that inherits from the `Base` class.
+This module defines the `Rectangle` class,
+which inherits from the `Base` class.
+
+The `Rectangle` class models a rectangle
+with specific attributes and methods
+to manipulate and display its properties.
+
+Classes:
+    Rectangle: A class representing a rectangle,
+    inheriting from the `Base` class.
+
+Usage Example:
+    from models.rectangle import Rectangle
+
+    # Creating a Rectangle instance
+    rect = Rectangle(10, 20, 5, 5, 1)
+
+    # Accessing attributes
+    print(rect.width)  # Output: 10
+    print(rect.height)  # Output: 20
+
+    # Updating attributes
+    rect.update(2, 30, 40)
+    rect.update(width=15, height=25)
+
+    # Displaying the rectangle
+    rect.display()
 """
 from models.base import Base
 
