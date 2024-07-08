@@ -6,6 +6,7 @@ Define the `Base` class that will be
 the base of all other classes in this project.
 """
 import json
+import os
 
 
 class Base:
@@ -69,6 +70,34 @@ class Base:
 
         dummy.update(**dictionary)  # type: ignore
         return dummy
+
+    @classmethod
+    def load_form_file(cls):
+        """
+        Returns a list of instances.
+
+        The filename must be: <Class name>.json
+            - example: Rectangle.json
+        If the file doesn't exist, return an empty list.
+        Otherwise, return a list of instances
+
+        - the type of these instances depends on cls.
+
+        Returns:
+            list: List of instances.
+        """
+
+        file_name = "{}.json".format(cls.__name__)
+
+        # search for the file
+        if not os.path.exists(file_name):
+            return []
+
+        with open(file_name, mode="r", encoding="utf-8") as f:
+            json_str = f.read()
+
+        list_dicts = cls.from_json_string(json_str)
+        return [cls.create(**diction) for diction in list_dicts]
 
     @staticmethod
     def to_json_string(list_dictionaries):
