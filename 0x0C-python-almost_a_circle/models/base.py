@@ -87,20 +87,11 @@ class Base:
             list: List of instances.
         """
 
-        file_name = "{}.json".format(cls.__name__)
-
-        # search for the file
-        if not os.path.exists(file_name):
+        filename = f"{cls.__name__}.json"
+        if not os.path.exists(filename):
             return []
-
-        with open(file_name, mode="r", encoding="utf-8") as f:
-            json_str = f.read()
-
-        list_dicts = cls.from_json_string(json_str)
-        instance_list = []
-        for diction in list_dicts:
-            instance_list.append(cls.create(**diction))
-        return instance_list
+        with open(filename, 'r') as file:
+            return [cls.create(**d) for d in cls.from_json_string(file.read())]
 
     @staticmethod
     def to_json_string(list_dictionaries):
