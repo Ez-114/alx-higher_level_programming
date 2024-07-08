@@ -193,21 +193,14 @@ class Rectangle(Base):
                 print(" " * self.x, end="")
                 print("#" * self.width)
 
-    def __str__(self):
+    def to_dictionary(self):
         """
-        Creates a new string object from the given Rectangle
-        instance.
+        Creates the dictionary object of the class instance.
 
         Returns:
-            (str): The created str object.
+            (dict): dictionary representing the instance in key, value pairs.
         """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
-                                                    self.id,
-                                                    self.x,
-                                                    self.y,
-                                                    self.width,
-                                                    self.height
-                                                )
+        return self.__dict__
 
     def update(self, *args, **kwargs):
         """
@@ -228,3 +221,19 @@ class Rectangle(Base):
             for i, arg in enumerate(args):
                 if i < len(attributes):
                     setattr(self, attributes[i], arg)
+
+    def __str__(self):
+        """
+        Creates a new string object from the given Rectangle
+        instance.
+
+        Returns:
+            (str): The created str object.
+        """
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                                                    self.id,
+                                                    self.x,
+                                                    self.y,
+                                                    self.width,
+                                                    self.height
+                                                )
