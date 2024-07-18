@@ -96,7 +96,6 @@ class Base:
             return []
         return json.loads(json_string)
 
-
     @classmethod
     def load_from_file(cls):
         """
@@ -117,4 +116,7 @@ class Base:
         if not os.path.exists(filename):
             return []
         with open(filename, 'r') as file:
-            return [cls.create(**d) for d in Base.from_json_string(file.read())]
+            return [
+                    cls.create(**d)
+                    for d in Base.from_json_string(file.read())
+                ]
