@@ -98,7 +98,7 @@ class Base:
 
 
     @classmethod
-    def load_form_file(cls):
+    def load_from_file(cls):
         """
         Returns a list of instances.
 
