@@ -33,11 +33,11 @@ class TestSquare(unittest.TestCase):
 
     def test_square_invalid_x_type(self):
         with self.assertRaises(TypeError):
-            Square(1, "2") # type: ignore
+            Square(1, "2")  # type: ignore
 
     def test_square_invalid_y_type(self):
         with self.assertRaises(TypeError):
-            Square(1, 2, "3") # type: ignore
+            Square(1, 2, "3")  # type: ignore
 
     def test_square_negative_size(self):
         with self.assertRaises(ValueError):
@@ -61,7 +61,10 @@ class TestSquare(unittest.TestCase):
 
     def test_square_to_dictionary(self):
         s = Square(10, 2, 1, 1)
-        self.assertEqual(s.to_dictionary(), {'id': 1, 'size': 10, 'x': 2, 'y': 1})
+        self.assertEqual(
+                s.to_dictionary(),
+                {'id': 1, 'size': 10, 'x': 2, 'y': 1}
+            )
 
     def test_square_update_args(self):
         s = Square(10, 10, 10, 10)
@@ -86,11 +89,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 3)
 
-    def test_square_save_to_file_none(self):
-        Square.save_to_file(None)
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
     def test_square_save_to_file_empty(self):
         Square.save_to_file([])
         with open("Square.json", "r") as file:
@@ -100,7 +98,16 @@ class TestSquare(unittest.TestCase):
         s = Square(10, 7, 2, 8)
         Square.save_to_file([s])
         with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), '[{"id": 8, "size": 10, "x": 7, "y": 2}]')
+            self.assertEqual(
+                    file.read(),
+                    '[{"id": 8, "size": 10, "x": 7, "y": 2}]'
+                )
+
+    def test_square_save_to_file_none(self):
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
 
     def test_square_load_from_file_no_file(self):
         if os.path.exists("Square.json"):
@@ -112,6 +119,11 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file([s])
         list_squares_output = Square.load_from_file()
         self.assertEqual(str(list_squares_output[0]), str(s))
+
+    def tearDown(self):
+        """Clean up the file after each test."""
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
 
 
 if __name__ == "__main__":

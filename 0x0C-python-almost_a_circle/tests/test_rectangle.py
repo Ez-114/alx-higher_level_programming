@@ -38,11 +38,11 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_invalid_x_type(self):
         with self.assertRaises(TypeError):
-            Rectangle(1, 2, "3") # type: ignore
+            Rectangle(1, 2, "3")  # type: ignore
 
     def test_rectangle_invalid_y_type(self):
         with self.assertRaises(TypeError):
-            Rectangle(1, 2, 3, "4") # type: ignore
+            Rectangle(1, 2, 3, "4")  # type: ignore
 
     def test_rectangle_negative_width(self):
         with self.assertRaises(ValueError):
@@ -132,11 +132,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 3)
         self.assertEqual(r.y, 4)
 
-    def test_rectangle_save_to_file_none(self):
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
     def test_rectangle_save_to_file_empty(self):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
@@ -150,6 +145,12 @@ class TestRectangle(unittest.TestCase):
                     file.read(),
                     '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}]')
 
+    def test_rectangle_save_to_file_none(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+            self.assertEqual(content, "[]")
+
     def test_rectangle_load_from_file_no_file(self):
         if os.path.exists("Rectangle.json"):
             os.remove("Rectangle.json")
@@ -160,6 +161,11 @@ class TestRectangle(unittest.TestCase):
         Rectangle.save_to_file([r])
         list_rectangles_output = Rectangle.load_from_file()
         self.assertEqual(str(list_rectangles_output[0]), str(r))
+
+    def tearDown(self):
+        """Clean up the file after each test."""
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
 
 
 if __name__ == "__main__":
