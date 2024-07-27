@@ -1,5 +1,5 @@
 -- Select the desired database
-USING hbtn_0c_0;
+USE hbtn_0c_0;
 
 -- Change the character set and collation of the database
 ALTER DATABASE hbtn_0c_0
