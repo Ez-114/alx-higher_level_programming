@@ -9,3 +9,6 @@ CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_2_pwd';
 
 -- Grant the created user the SELECT privellege only
 GRANT SELECT ON htbn_0d_2.* TO 'user_0d_2'@'localhost';
+
+-- Apply changes
+FLUSH PRIVILEGES;
